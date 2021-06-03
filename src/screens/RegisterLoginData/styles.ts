@@ -9,7 +9,7 @@ export const Container = styled.View`
 export const HeaderTitle = styled.Text`
   color: ${({ theme })=> theme.colors.white};
   font-size: ${RFValue(18)}px;
-  font-family: 'Poppins_500Medium';
+  font-family: ${({ theme })=> theme.text.medium};
 
   margin: ${RFValue(64)}px auto ${RFValue(41)}px auto;
 `;

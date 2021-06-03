@@ -32,6 +32,6 @@ export const EmptyListContainer = styled.View`
 
 export const EmptyListMessage = styled.Text`
   font-size: ${RFValue(16)}px;
-  font-family: 'Poppins_500Medium';
+  font-family: ${({ theme })=> theme.text.medium};
   color: ${({ theme })=> theme.colors.text};
 `;
