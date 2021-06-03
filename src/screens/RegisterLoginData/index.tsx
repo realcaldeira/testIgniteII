@@ -10,6 +10,8 @@ import uuid from 'react-native-uuid';
 import { Input } from '../../components/Form/Input';
 import { Button } from '../../components/Form/Button';
 
+import { useStorageData } from '../../hooks/storageData';
+
 import {
   Container,
   HeaderTitle,
@@ -29,6 +31,7 @@ const schema = Yup.object().shape({
 })
 
 export function RegisterLoginData() {
+  
   const {
     control,
     handleSubmit,
@@ -41,6 +44,9 @@ export function RegisterLoginData() {
   });
 
   async function handleRegister(formData: FormData) {
+    const { key } = useStorageData();
+    console.log(key);
+    
     const newLoginData = {
       id: String(uuid.v4()),
       ...formData

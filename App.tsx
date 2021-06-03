@@ -6,6 +6,7 @@ import { NavigationContainer } from '@react-navigation/native';
 import { theme } from './src/global';
 
 import { ThemeProvider } from 'styled-components/native';
+import { StorageData } from './src/hooks/storageData';
 
 import { AppRoutes } from './src/routes/app.routes';
 
@@ -22,7 +23,9 @@ export default function App() {
   return (
     <ThemeProvider theme={theme}>
       <NavigationContainer>
+        <StorageData>
           <AppRoutes />
+        </StorageData>
       </NavigationContainer>
     </ThemeProvider>
   );

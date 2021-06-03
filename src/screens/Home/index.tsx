@@ -5,6 +5,8 @@ import { useFocusEffect } from '@react-navigation/native';
 import { SearchBar } from '../../components/SearchBar';
 import { LoginDataItem } from '../../components/LoginDataItem';
 
+import { useStorageData } from '../../hooks/storageData';
+
 import {
   Container,
   LoginList,
@@ -22,6 +24,8 @@ interface LoginDataProps {
 type LoginListDataProps = LoginDataProps[];
 
 export function Home() {
+  const { key } = useStorageData();
+  
   const [searchListData, setSearchListData] = useState<LoginListDataProps>([]);
   const [data, setData] = useState<LoginListDataProps>([]);
 
