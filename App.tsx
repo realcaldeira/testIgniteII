@@ -3,9 +3,9 @@ import AppLoading from 'expo-app-loading';
 import { useFonts, Poppins_400Regular, Poppins_500Medium } from '@expo-google-fonts/poppins';
 import { NavigationContainer } from '@react-navigation/native';
 
-import { theme } from './src/global';
+import  theme  from './src/global/theme';
 
-import { ThemeProvider } from 'styled-components/native';
+import { ThemeProvider } from 'styled-components';
 import { StorageData } from './src/hooks/storageData';
 
 import { AppRoutes } from './src/routes/app.routes';
