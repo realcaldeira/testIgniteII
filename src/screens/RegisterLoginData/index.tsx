@@ -31,7 +31,8 @@ const schema = Yup.object().shape({
 })
 
 export function RegisterLoginData() {
-  
+  const { key } = useStorageData(); //HOOK
+
   const {
     control,
     handleSubmit,
@@ -44,18 +45,14 @@ export function RegisterLoginData() {
   });
 
   async function handleRegister(formData: FormData) {
-    const { key } = useStorageData();
-    console.log(key);
     
     const newLoginData = {
       id: String(uuid.v4()),
       ...formData
     }
 
-    const dataKey = '@passmanager:logins';
-
     try {
-      const prevValue = await AsyncStorage.getItem(dataKey);
+      const prevValue = await AsyncStorage.getItem(key);
       const currentData = prevValue ? JSON.parse(prevValue) : [];
 
       const dataFormatted = [
@@ -63,7 +60,7 @@ export function RegisterLoginData() {
         newLoginData
       ];
 
-      await AsyncStorage.setItem(dataKey, JSON.stringify(dataFormatted));
+      await AsyncStorage.setItem(key, JSON.stringify(dataFormatted));
 
       reset();
     } catch (error) {
